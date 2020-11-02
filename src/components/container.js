@@ -74,6 +74,9 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1),
     backgroundColor: "#fff",
   },
+  capitalize: {
+    textTransform: "capitalize",
+  },
 }));
 
 function ResponsiveDrawer(props) {
@@ -91,16 +94,27 @@ function ResponsiveDrawer(props) {
     setOpen(!open);
   };
 
-  const getBreadcrumbs = (path) => {
+  const BreadcrumbsPath = (props) => {
+    let route = props.route;
+    route = route.replace(/-/g, " ");
+
+    let path = route.split("/");
+    path = path.filter((el) => {
+      return el != "";
+    });
+
     return (
       <React.Fragment>
-        <Breadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs aria-label="breadcrumb" className={classes.capitalize}>
           <Link color="inherit" href="/">
             Home
           </Link>
+          {path.map((way, i) => (
+            <Typography color="textPrimary" key={i}>
+              {way}
+            </Typography>
+          ))}
         </Breadcrumbs>
-        <Typography color="textPrimary">Getting Started</Typography>
-        <Typography color="textPrimary">Overview</Typography>
       </React.Fragment>
     );
   };
@@ -231,6 +245,7 @@ function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <BreadcrumbsPath route={props.route} />
         <Container maxWidth="md">{content}</Container>
       </main>
     </div>
