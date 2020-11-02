@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import Blue from "@material-ui/core/colors/blue";
 import MenuIcon from "@material-ui/icons/Menu";
 import Container from "@material-ui/core/Container";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -88,6 +89,20 @@ function ResponsiveDrawer(props) {
 
   const handleClick = () => {
     setOpen(!open);
+  };
+
+  const getBreadcrumbs = (path) => {
+    return (
+      <React.Fragment>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link color="inherit" href="/">
+            Home
+          </Link>
+        </Breadcrumbs>
+        <Typography color="textPrimary">Getting Started</Typography>
+        <Typography color="textPrimary">Overview</Typography>
+      </React.Fragment>
+    );
   };
 
   const getRoute = (label, parentLabel) => {
@@ -216,7 +231,7 @@ function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Container maxWidth="sm">{content}</Container>
+        <Container maxWidth="md">{content}</Container>
       </main>
     </div>
   );
