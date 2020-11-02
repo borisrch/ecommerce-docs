@@ -74,8 +74,9 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1),
     backgroundColor: "#fff",
   },
-  capitalize: {
+  breadcrumbs: {
     textTransform: "capitalize",
+    marginBottom: theme.spacing(6),
   },
 }));
 
@@ -105,7 +106,7 @@ function ResponsiveDrawer(props) {
 
     return (
       <React.Fragment>
-        <Breadcrumbs aria-label="breadcrumb" className={classes.capitalize}>
+        <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumbs}>
           <Link color="inherit" href="/">
             Home
           </Link>
@@ -245,8 +246,13 @@ function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <BreadcrumbsPath route={props.route} />
-        <Container maxWidth="md">{content}</Container>
+
+        <Container maxWidth="md">
+          <React.Fragment>
+            <BreadcrumbsPath route={props.route} />
+            {content}
+          </React.Fragment>
+        </Container>
       </main>
     </div>
   );
