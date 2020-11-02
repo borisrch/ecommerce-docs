@@ -5,8 +5,9 @@ import Head from "../../src/components/head";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { docs } from "../../src/docs";
 
-const label = "Overview";
+const label = docs[0].children[0].label;
 
 // TODO: refactor to style from container
 const useStyles = makeStyles({
