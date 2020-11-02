@@ -8,6 +8,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { docs } from "../../src/docs";
 
 const label = docs[0].children[0].label;
+const route = docs[0].children[0].route;
 
 // TODO: refactor to style from container
 const useStyles = makeStyles({
@@ -50,7 +51,7 @@ function Page({ content, data }) {
   return (
     <React.Fragment>
       <Head title={label} />
-      <Container content={<ContentContainer />} label={label} />
+      <Container content={<ContentContainer />} label={label} route={route} />
     </React.Fragment>
   );
 }
