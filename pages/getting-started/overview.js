@@ -9,9 +9,6 @@ import { docs } from "../../src/docs";
 
 const { label, route } = docs[0].children[0];
 
-// const label = docs[0].children[0].label;
-// const route = docs[0].children[0].route;
-
 // TODO: refactor to style from container
 const useStyles = makeStyles({
   root: {
