@@ -4,11 +4,12 @@ const useContentStyles = makeStyles({
   root: {
     // paddingLeft: "2%",
     // paddingRight: "2%",
+    width: "100%",
     color: "#333",
     "& img": {
       width: "100%",
       textAlign: "center",
-      // padding: "5%",
+      padding: "5%",
     },
     "& code": {
       backgroundColor: "#edf1fb",
