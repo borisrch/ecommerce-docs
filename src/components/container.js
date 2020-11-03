@@ -98,7 +98,7 @@ function ResponsiveDrawer(props) {
 
   const BreadcrumbsPath = (props) => {
     // Render nothing if no route is passed to container.
-    // Only used for home or pages not on sidebar.
+    // Used for home or pages not on sidebar.
     if (props.route === undefined) {
       return null;
     }
