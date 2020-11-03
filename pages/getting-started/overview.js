@@ -1,43 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "../../src/components/container";
 import Head from "../../src/components/head";
 
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+
 import { docs } from "../../src/docs";
+import useContentStyles from "../../src/styles";
 
 const { label, route } = docs[0].children[0];
 
 // TODO: refactor to style from container
-const useStyles = makeStyles({
-  root: {
-    paddingLeft: "5%",
-    paddingRight: "5%",
-    color: "#333",
-    "& h1": {
-      color: "green",
-    },
-    "& img": {
-      width: "100%",
-      textAlign: "center",
-      padding: "5%",
-    },
-    "& code": {
-      backgroundColor: "#edf1fb",
-      color: "#1976d2",
-      padding: "4px 8px",
-      borderRadius: "4px",
-    },
-    "& p": {
-      lineHeight: "2.5em",
-      textAlign: "justify",
-    },
-  },
-});
 
 function Page({ content, data }) {
-  const classes = useStyles();
+  const classes = useContentStyles();
 
   const ContentContainer = () => {
     return (
