@@ -1,15 +1,27 @@
+import { Typography } from "@material-ui/core";
+import React from "react";
 import Container from "../src/components/container";
+import Head from "../src/components/head";
 
-const Content = () => {
+const { label } = "ShopCast Documentation";
+
+// TODO: refactor to style from container
+
+function Page() {
+  const ContentContainer = () => {
+    return (
+      <React.Fragment>
+        <Typography variant="h4">ShopCast Documentation</Typography>
+      </React.Fragment>
+    );
+  };
+
   return (
-    <div>
-      <p>Home Page</p>
-    </div>
+    <React.Fragment>
+      <Head title={label} />
+      <Container content={<ContentContainer />} label={label} />
+    </React.Fragment>
   );
-};
-
-function Index() {
-  return <Container content={<Content />} />;
 }
 
-export default Index;
+export default Page;
