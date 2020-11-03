@@ -120,27 +120,6 @@ function ResponsiveDrawer(props) {
     );
   };
 
-  const getRoute = (label, parentLabel) => {
-    let route = `${parentLabel}/${label}`;
-    route = route.toLowerCase();
-    route = route.replace(/ /g, "-");
-    return route;
-  };
-
-  const LinkListItem = React.forwardRef(({ onClick, href }, ref) => {
-    return (
-      <ListItem button className={classes.nested} key={i}>
-        <ListItemText
-          primary={item.label}
-          className={clsx(
-            classes.indent,
-            props.key === item.label && classes.active
-          )}
-        />
-      </ListItem>
-    );
-  });
-
   const ListWrapper = (props) => {
     const children = props.item.children;
     const index = props.index;
@@ -246,12 +225,9 @@ function ResponsiveDrawer(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-
         <Container maxWidth="md">
-          <React.Fragment>
-            <BreadcrumbsPath route={props.route} />
-            {content}
-          </React.Fragment>
+          <BreadcrumbsPath route={props.route} />
+          <React.Fragment>{content}</React.Fragment>
         </Container>
       </main>
     </div>
