@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    overflow: "auto",
   },
   indent: {
     paddingLeft: theme.spacing(2),
@@ -96,6 +97,12 @@ function ResponsiveDrawer(props) {
   };
 
   const BreadcrumbsPath = (props) => {
+    // Render nothing if no route is passed to container.
+    // Only used for home or pages not on sidebar.
+    if (props.route === undefined) {
+      return null;
+    }
+
     let route = props.route;
     route = route.replace(/-/g, " ");
 
